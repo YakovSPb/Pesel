@@ -1,0 +1,259 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+textarea:focus
+	&::-webkit-input-placeholder
+		color: transparent!important
+	&::-moz-placeholder
+		color: transparent!important
+	&::-ms-input-placeholder
+		color: transparent!important
+input:focus
+	&::-webkit-input-placeholder
+		color: transparent!important
+	&::-moz-placeholder
+		color: transparent!important
+	&::-ms-input-placeholder
+		color: transparent!important
+
+html
+	-ms-overflow-style: none
+	scrollbar-width: none
+	&::-webkit-scrollbar
+		width: 0
+	&::-webkit-scrollbar
+		width: 0
+
+
+html
+  overflow: scroll
+  overflow-x: hidden
+::-webkit-scrollbar
+  width: 0px
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $font
+	overflow-x: hidden
+	color: $text
+	background: $background
+
+// Custom Sass / Remove before use
+
+.container
+	max-width: 1280px
+	padding:
+		right: 60px
+		left: 60px
+	margin:
+		left: auto
+		right: auto
+
+.header
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.55)
+.header_inner
+	display: flex
+	justify-content: space-between
+	align-items: center
+	height: 100px
+
+.logo
+	font-size: 30px
+	text-transform: uppercase
+	a
+		color: $accent
+		&:hover
+			text-decoration: none
+			color: $accent
+.favorite_link
+	display: flex
+	align-items: center
+	font-size: 16px
+	color: $gray
+	transition: all .3s ease
+	&:hover
+		color: #fff
+		text-decoration: none
+		svg
+			path
+				fill: #fff
+	svg
+		margin: 2px 0 0 10px
+		path
+			transition: all .3s ease
+
+
+.dogs_list
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+.dog_item
+	position: relative
+	max-width: 367px
+	height: 290px
+	margin-bottom: 30px
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background: linear-gradient(3.21deg, #000000 -15.62%, rgba(0, 0, 0, 0) 45.69%)
+	&__heard
+		position: absolute
+		top: 25px
+		left: 25px
+		cursor: pointer
+		z-index: 10
+	&__name
+		position: absolute
+		bottom: 25px
+		right: 25px
+		z-index: 10
+		font-size: 25px
+		line-height: 25px
+		font-weight: bold
+	&__img
+		width: 100%
+		height: 100%
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+			border-radius: 10px
+	&:nth-child(1)
+		max-width: 100%
+		height: 513px
+		.dog_item__name
+			bottom: 50px
+			right: 50px
+			font-size: 30px
+
+.sort_nav
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin: 50px 0
+	color: $gray
+.sort_abc
+	display: flex
+	align-items: center
+
+.sort_brends
+	font-family: $font
+	line-height: 18px
+
+.switch
+	position: relative
+	display: inline-block
+	width: 30px
+	height: 15px
+	margin: 2px 0 0 15px!important
+
+.switch input
+	opacity: 0
+	width: 0
+	height: 0
+
+.slider
+	position: absolute
+	cursor: pointer
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: transparent
+	-webkit-transition: .4s
+	transition: .4s
+	border: 2px solid $gray
+
+.slider:before
+	position: absolute
+	content: ""
+	height: 9px
+	width: 9px
+	left: 2px
+	bottom: 1px
+	background-color: $gray
+	-webkit-transition: .4s
+	transition: .4s
+
+
+input:focus + .slider
+	box-shadow: 0 0 1px #2196F3
+
+input:checked + .slider:before
+	-webkit-transform: translateX(14px)
+	-ms-transform: translateX(14px)
+	transform: translateX(14px)
+.slider.round
+	border-radius: 34px
+
+.slider.round:before
+	border-radius: 50%
+
+.lds-ellipsis
+	display: inline-block
+	position: relative
+	width: 80px
+	height: 80px
+.lds-ellipsis div
+	position: absolute
+	top: 33px
+	width: 13px
+	height: 13px
+	border-radius: 50%
+	background: #fff
+	animation-timing-function: cubic-bezier(0, 1, 1, 0)
+
+.lds-ellipsis div:nth-child(1)
+	left: 8px
+	animation: lds-ellipsis1 0.6s infinite
+.lds-ellipsis div:nth-child(2)
+	left: 8px
+	animation: lds-ellipsis2 0.6s infinite
+.lds-ellipsis div:nth-child(3)
+	left: 32px
+	animation: lds-ellipsis2 0.6s infinite
+.lds-ellipsis div:nth-child(4)
+	left: 56px
+	animation: lds-ellipsis3 0.6s infinite
+@keyframes lds-ellipsis1
+	0%
+		transform: scale(0)
+	100%
+		transform: scale(1)
+@keyframes lds-ellipsis3
+	0%
+		transform: scale(1)
+	100%
+		transform: scale(0)
+@keyframes lds-ellipsis2
+	0%
+		transform: translate(0, 0)
+	100%
+		transform: translate(24px, 0)
+
+.loader
+	text-align: center
+	padding-bottom: 100px
